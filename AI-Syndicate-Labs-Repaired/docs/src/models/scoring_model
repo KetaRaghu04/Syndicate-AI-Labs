@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+
+def calculate_scores(df):
+    df["mcap_score"] = df["market_cap"] / df["market_cap"].max()
+    df["inv_volatility"] = 1 / df["volatility"]
+    df["inv_vol_score"] = df["inv_volatility"] / df["inv_volatility"].max()
+
+    df["composite_score"] = (
+        0.30 * df["mcap_score"] +
+        0.25 * (df["liquidity"] / 10) +
+        0.25 * (df["narrative"] / 10) +
+        0.20 * df["inv_vol_score"]
+    )
+
+    weights = df["composite_score"] / df["composite_score"].sum()
+    weights = np.clip(weights, 0, 0.25)
+    weights /= weights.sum()
+    df["final_weight"] = (weights * 100).round(2)
+    return df[["symbol", "final_weight"]]
