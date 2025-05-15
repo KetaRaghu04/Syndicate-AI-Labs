@@ -1,1 +1,1 @@
-// Solidity smart contract placeholder
+@Launchcoin
