@@ -1,0 +1,230 @@
+# AI Syndicate Index (ASI) – White Paper
+
+**Version 1.0 – May 2025**  
+Prepared by: AI Syndicate Labs
+
+---
+
+## Abstract
+
+The **AI Syndicate Index (ASI)** is a fully on-chain, quant-weighted index that provides diversified exposure to the AI narrative in cryptocurrency. ASI uses a composable, transparent scoring model to track a curated set of AI infrastructure tokens and AI memecoins, rebalancing monthly and governed by a decentralized DAO using a dual-token architecture ($ASI + $SYN).
+
+---
+
+## 1. Introduction
+
+The intersection of AI and Web3 is accelerating rapidly — but exposure to AI tokens is fragmented, speculative, and often based more on hype than fundamentals. Investors face challenges in diversifying, balancing risk, and tracking early innovation in this volatile market.
+
+**The ASI Index solves this with:**
+
+- A structured index token ($ASI) for AI sector exposure
+- A transparent scoring model combining real-time metrics
+- Sector caps and rebalancing logic to maintain balance
+- DAO governance through $SYN for long-term decentralization
+
+---
+
+## 2. The Problem
+
+- **No structured AI exposure** — investors must manually buy/sell trending tokens
+- **Overexposure to hype** — memecoins dominate visibility
+- **Lack of transparency** — few products disclose their index logic
+- **No governance voice** — users can’t steer future allocations
+
+---
+
+## 3. The Solution
+
+The **AI Syndicate Index (ASI)** is a smart-contract-based index composed of:
+
+- **AI Utility Tokens**: $FET, $AGIX, $GRT, $OCEAN
+- **AI Memecoins**: $TURBO, $PEPEAI, $BOME
+- **Experimental**: DAO-selected early-stage AI tokens
+
+Weights are determined using a quant-based model and rebalanced monthly. Community governance is planned through a tokenized DAO.
+
+---
+
+## 4. Index Methodology
+
+### 4.1 Scoring Formula
+
+Score = (
+0.30 * market_cap_normalized +
+0.25 * liquidity_score +
+0.25 * narrative_velocity +
+0.20 * inverse_volatility
+)
+
+
+### 4.2 Metric Breakdown
+
+| Metric             | Weight | Description                                           |
+|--------------------|--------|-------------------------------------------------------|
+| Market Cap         | 30%    | Normalized against highest market cap in the index   |
+| Liquidity Score    | 25%    | Based on 30-day volume from DEXs + CEXs              |
+| Narrative Velocity | 25%    | Sentiment score from Twitter, Telegram, and forums   |
+| Inverse Volatility | 20%    | 7-day rolling price volatility, inverted for reward  |
+
+All raw scores are normalized between 0 and 1 before weighting.
+
+---
+
+## 5. Weight Normalization and Constraints
+
+After scores are calculated, weights are normalized with safeguards:
+
+weights = scores / scores.sum()
+weights = np.clip(weights, 0, 0.25) # Cap individual tokens at 25%
+weights /= weights.sum() # Normalize again after clipping
+
+
+**Constraints:**
+
+- Max 25% per token
+- Max 30% of index can be meme sector
+- Minimum token requirements:
+  - $5M+ market cap
+  - 90+ days of on-chain activity
+  - Public audit or community trust review
+
+---
+
+## 6. Rebalancing Logic
+
+| Parameter          | Value                              |
+|--------------------|------------------------------------|
+| Frequency          | Every 30 days                      |
+| Executor           | Multisig (initial) / DAO (future)  |
+| Automation Layer   | Chainlink Keepers / Gelato (Q4 2025) |
+| Data Source        | APIs + sentiment feeds             |
+
+Final weights and scores are published monthly and stored on GitHub + optionally on-chain.
+
+---
+
+## 7. Dual Token Architecture
+
+### 7.1 $ASI – Index Token
+
+| Attribute      | Description                                   |
+|----------------|-----------------------------------------------|
+| Standard       | ERC-20                                         |
+| Backed By      | Basket of top AI tokens                       |
+| Supply         | Elastic (via Launch Coin mechanism)           |
+| Utility        | Liquid exposure to AI sector in a single token|
+
+### 7.2 $SYN – Governance Token
+
+| Attribute      | Description                                   |
+|----------------|-----------------------------------------------|
+| Max Supply     | 100,000,000                                    |
+| Use Cases      | DAO voting, treasury proposals, emissions     |
+| Voting System  | Snapshot (off-chain), future on-chain DAO     |
+
+---
+
+## 8. Governance Design
+
+### 8.1 DAO Powers
+
+- Token inclusion/removal
+- Adjust scoring model weights or formulas
+- Manage treasury and fee parameters
+- Approve grants and emissions
+- Launch new sub-indexes or experimental vaults
+
+### 8.2 DAO Phases
+
+| Phase | Description                             |
+|-------|-----------------------------------------|
+| V0    | Multisig-controlled logic and scripts   |
+| V1    | Snapshot DAO with $SYN delegation       |
+| V2    | Timelock-controlled contract automation |
+| V3    | Fully autonomous DAO + community-led R&D|
+
+---
+
+## 9. Roadmap
+
+### Q2 2025
+
+- ✅ Launch partnership with Launch Coin  
+- ✅ Publish GitHub repo, whitepaper, scoring model  
+- ✅ Release sample rebalance scripts and token weights  
+
+### Q3 2025
+
+- ⏳ Launch $SYN token + Snapshot DAO  
+- ⏳ Publish Streamlit-based dashboard  
+- ⏳ Community onboarding + GitHub bounties  
+
+### Q4 2025
+
+- ⏳ Integrate automation (Chainlink/Gelato)  
+- ⏳ Launch DAO-managed grants  
+- ⏳ Pilot sub-index for AI Infrastructure  
+
+### 2026+
+
+- Multichain ASI Index deployment  
+- Launch tokenized ETF wrapper for TradFi  
+- Integrate LLM-powered sentiment feeds  
+- Expand to non-EVM ecosystems (Solana, SVM, Base)
+
+---
+
+## 10. Example Allocation Snapshot
+
+| Token   | Sector       | Weight (%) |
+|---------|--------------|------------|
+| FET     | Utility      | 22.5       |
+| AGIX    | Utility      | 17.3       |
+| GRT     | Utility      | 15.2       |
+| TURBO   | Meme         | 12.1       |
+| PEPEAI  | Meme         | 10.4       |
+| BOME    | Meme         | 8.3        |
+| OCEAN   | Utility      | 9.2        |
+| VAI     | Experimental | 5.0        |
+
+---
+
+## 11. Revenue Model
+
+| Source            | Description                                |
+|-------------------|--------------------------------------------|
+| Streaming Fee     | 1% annual on $ASI holdings (DAO-governed)  |
+| Performance Fee   | Optional on index growth                    |
+| Treasury Yield    | $ASI vault staking + DeFi integrations     |
+| Governance Grants | Funded by $SYN DAO                         |
+
+All revenues flow to DAO treasury unless redistributed via vote.
+
+---
+
+## 12. Risks & Disclaimers
+
+- $ASI is a tracking index — it is not a yield or synthetic product.
+- Weights reflect model outputs; no endorsements are implied.
+- DAO success depends on participation and contributor activity.
+- Launch Coin is a deployment partner, not a custodian.
+
+---
+
+## 13. Conclusion
+
+The **AI Syndicate Index (ASI)** is the crypto-native version of a sector ETF — governed by data, driven by contributors, and built for the decentralized future of artificial intelligence.
+
+**$ASI = structured exposure**  
+**$SYN = governance power**
+
+> In a world of noise, **ASI is signal**.
+
+---
+
+## Contact & Links
+
+- Website:
+- GitHub: https://github.com/KetaRaghu04/Syndicate-AI-Labs/tree/main/AI-Syndicate-Labs-Repaired
+- Twitter: https://twitter.com/AISyndicateSOL 
+- Telegram: https://t.me/AISyndicate_Labs  
