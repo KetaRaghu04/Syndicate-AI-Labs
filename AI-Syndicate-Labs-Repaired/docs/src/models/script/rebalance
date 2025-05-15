@@ -1,0 +1,13 @@
+import pandas as pd
+from src.models.scoring_model import calculate_scores
+
+# Sample data (replace with live API or CSV source)
+data = [
+    {"symbol": "FET", "market_cap": 1400, "liquidity": 9, "narrative": 8, "volatility": 4},
+    {"symbol": "AGIX", "market_cap": 550, "liquidity": 8, "narrative": 9, "volatility": 5},
+    {"symbol": "TURBO", "market_cap": 90, "liquidity": 7, "narrative": 10, "volatility": 8},
+]
+
+df = pd.DataFrame(data)
+scored_df = calculate_scores(df)
+print(scored_df)
