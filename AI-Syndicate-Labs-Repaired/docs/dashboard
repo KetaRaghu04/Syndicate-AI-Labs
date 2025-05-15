@@ -1,0 +1,15 @@
+import streamlit as st
+import pandas as pd
+
+st.set_page_config(page_title="ASI Index Dashboard", layout="wide")
+
+st.title("🧠 ASI Index Dashboard")
+
+df = pd.read_csv("data/processed/token_scores.csv")
+
+st.subheader("Current Token Weights")
+st.dataframe(df[["symbol", "final_weight"]])
+
+st.bar_chart(data=df.set_index("symbol")["final_weight"])
+
+st.markdown("Weights are updated every 30 days via on-chain or DAO-controlled rebalancing.")
