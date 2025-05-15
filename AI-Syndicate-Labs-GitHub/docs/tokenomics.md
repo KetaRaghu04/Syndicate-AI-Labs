@@ -1,3 +1,0 @@
-# AI Syndicate Labs – Tokenomics Overview
-
-This document details the dual-token model ...

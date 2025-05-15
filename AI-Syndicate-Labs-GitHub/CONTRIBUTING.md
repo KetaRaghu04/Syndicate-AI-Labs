@@ -1,3 +1,0 @@
-# Contributing to AI Syndicate Labs
-
-We're building the future of crypto AI indexing ...

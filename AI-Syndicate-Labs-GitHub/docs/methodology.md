@@ -1,3 +1,0 @@
-# ASI Index Methodology
-
-This document outlines the core methodology ...

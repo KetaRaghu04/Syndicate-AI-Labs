@@ -1,3 +1,0 @@
-# ASI Index Governance Roadmap
-
-## 🧱 Governance Vision ...
