@@ -44,8 +44,8 @@ We use the [MIT License](../LICENSE) — contributions are open and public.
 
 ## 📬 Communication
 
-- Telegram: [@AISyndicateLabs]()
-- Twitter/X: [@AISyndicateLabs](https://x.com/AISyndicateSOL)
+- Telegram: [@SyndicateAI_Labs](https://t.me/SyndicateAI_Labs)
+- Twitter/X: [@AISyndicateSOL](https://x.com/AISyndicateSOL](https://x.com/AISyndicateSOL))
 - Issues tab: Tag relevant maintainers when submitting PRs
 
 ---
