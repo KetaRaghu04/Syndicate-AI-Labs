@@ -1,0 +1,22 @@
+For those reporting bugs use this format.
+
+# 🚀 Pull Request
+
+## Description
+
+Please include a summary of the change and relevant motivation/context.
+
+## Type of change
+
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Refactor
+- [ ] Docs only
+- [ ] CI/CD config
+
+## Checklist
+
+- [ ] I’ve added tests if applicable
+- [ ] My code follows the style guidelines of this repo
+- [ ] I’ve linked related issues
+- [ ] I’ve explained the reasoning clearly
